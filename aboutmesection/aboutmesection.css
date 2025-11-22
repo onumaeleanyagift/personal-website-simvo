@@ -10,6 +10,7 @@
 .aboutme-icons {
   font-size: 25px;
   margin-top: 45px;
+  margin-bottom: 25px;
 }
 
 .aboutme-icon {
@@ -20,4 +21,12 @@
 .aboutme-icon:hover {
     cursor: pointer;
     color: var(--titleSectionTertiaryColor);
+}
+
+.aboutme-icons > a {
+    text-decoration: none;
+}
+
+.aboutme-cv > a {
+    color: black;
 }
