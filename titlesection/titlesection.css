@@ -1,9 +1,10 @@
 :root {
-  --titleSectionPrimaryColor: white;
+  --titleSectionPrimaryColor: rgb(255, 255, 255);
+  --titleSectionSecondaryColor: rgb(0, 42, 49);
 }
 
 button:hover {
-  background-color: red;
+  background-color: var(--titleSectionPrimaryColor);
   cursor: pointer;
 }
 
@@ -16,9 +17,10 @@ button:hover {
 }
 
 .title-section-button {
-  color: var(--titleSectionPrimaryColor);
-    border: solid var(--titleSectionPrimaryColor) 1px;
-    border-radius: 5px;
-    padding: 15px 20px;
-    background-color: transparent;
+  background-color: var(--titleSectionPrimaryColor);
+  color: var(--titleSectionSecondaryColor);
+  border: solid var(--titleSectionPrimaryColor) 1px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: transparent;
 }
