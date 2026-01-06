@@ -53,8 +53,17 @@
 
   <div class="main-section" id="craps-game">
     <h1 class="craps-game-title">Craps Casino Game</h1>
-
-    <div class="craps-game-container"></div>
+    <div class="craps-game-container">
+      <div class="craps-reg-pane">
+        <div>
+          Enter Username to begin
+        </div>
+        <div><input type="text" class="craps-reg-input" id="craps-username-input"></div>
+        <div class="craps-reg-continue" onclick="regCrapsPlayer()">
+          Continue
+        </div>
+      </div>
+    </div>
 
   </div>
 
@@ -104,5 +113,9 @@
   function makeDreamComeTrue() {
     document.body.style.background = "url(../images/bg.png)";
     document.getElementById("title").style.visibility = "hidden";
+  }
+
+  function regCrapsPlayer(){
+    let crapsUsername = alert(document.getElementById("craps-username-input").value)
   }
 </script>

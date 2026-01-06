@@ -18,3 +18,30 @@
     background-size: cover;
     background-position: top center;
 }
+
+.craps-reg-pane {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.craps-reg-input {
+    background: none;
+    border: none;
+    border-bottom: solid white 1px;
+    margin-top: 25px;
+    color: white;
+    text-align: center;
+}
+
+.craps-reg-input:focus {
+    outline-width: 0;
+}
+
+.craps-reg-continue {
+    margin-top: 25px;
+}
+
+.craps-reg-continue:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
