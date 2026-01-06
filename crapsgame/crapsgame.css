@@ -19,7 +19,7 @@
     background-position: top center;
 }
 
-.craps-reg-pane {
+#craps-reg-pane {
     margin-top: 25px;
     text-align: center;
 }
@@ -44,4 +44,8 @@
 .craps-reg-continue:hover {
     cursor: pointer;
     font-weight: bold;
+}
+
+#craps-main-section {
+    display: none;
 }
