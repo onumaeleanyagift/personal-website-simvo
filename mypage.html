@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="./titlesection/titlesection.css" />
     <link rel="stylesheet" href="./aboutmesection/aboutmesection.css" />
     <link rel="stylesheet" href="./crapsgame/crapsgame.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Armata&display=swap"
@@ -27,7 +30,7 @@
     <div class="misc-section" id="aboutme">
       <div class="text-block-container">
         <h1>About Me</h1>
-        <p class="aboutme-section-desc">
+        <div class="aboutme-section-desc">
           I am Eleanya Gift Onuma, a determined and hardworking young man from
           Nigeria, focused on building a better future through tech, creativity,
           and personal growth. I’m learning frontend development, improving my
@@ -38,80 +41,106 @@
           more successful version of myself.
 
           <div class="aboutme-icons">
-            <a href="https://www.linkedin.com/in/onumajnr/" target="_blank"><i class="aboutme-icon fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/onumajnr/" target="_blank"><i class="aboutme-icon fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/onumajnr/" target="_blank"><i class="aboutme-icon fa-brands fa-facebook"></i></a>
-            <a href="mailto:onumajnr@gmail.com" target="_blank"><i class="aboutme-icon fa-regular fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/onumajnr/" target="_blank"
+              ><i class="aboutme-icon fa-brands fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.instagram.com/onumajnr/" target="_blank"
+              ><i class="aboutme-icon fa-brands fa-instagram"></i
+            ></a>
+            <a href="https://www.facebook.com/onumajnr/" target="_blank"
+              ><i class="aboutme-icon fa-brands fa-facebook"></i
+            ></a>
+            <a href="mailto:onumajnr@gmail.com" target="_blank"
+              ><i class="aboutme-icon fa-regular fa-envelope"></i
+            ></a>
           </div>
 
           <div class="aboutme-cv">
-            <a href="./aboutmesection/ONUMA_ELEANYA_CV_2025.pdf" download>Download my CV</a>
+            <a href="./aboutmesection/ONUMA_ELEANYA_CV_2025.pdf" download
+              >Download my CV</a
+            >
           </div>
-        </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-section" id="craps-game">
+      <h1 class="craps-game-title">Craps Casino Game</h1>
+
+      <div class="craps-game-container">
+        <div id="craps-reg-pane">
+          <div>Enter Username to begin</div>
+          <div>
+            <input
+              type="text"
+              class="craps-reg-input"
+              id="craps-username-input"
+            />
+          </div>
+          <div class="craps-reg-continue" onclick="regCrapsPlayer()">
+            Continue
+          </div>
+        </div>
+
+        <div id="craps-main-section">
+          <div class="craps-main-section-stats">
+            <div>Welcome, <span id="craps-stats-username"></span></div>
+            <div id="craps-stats-money-container">
+              $<span id="craps-stats-money"></span>
+            </div>
+            <div>Rounds: <span id="craps-stats-rounds"></span></div>
+          </div>
+        </div>
       </div>
     </div>
 
-  <div class="main-section" id="craps-game">
-    <h1 class="craps-game-title">Craps Casino Game</h1>
-    <div class="craps-game-container">
-      <div id="craps-reg-pane">
-        <div>
-          Enter Username to begin
-        </div>
-        <div><input type="text" class="craps-reg-input" id="craps-username-input"></div>
-        <div class="craps-reg-continue" onclick="regCrapsPlayer()">
-          Continue
-        </div>
-      </div>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Armata";
+      }
 
-      <div id="craps-main-section">
-        MAIN-SECTION
-    </div>
-    </div>
+      html,
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
 
-  </div>
+      .main-section {
+        width: 100vw;
+        height: 100vh;
+        border: solid white 1px;
+        text-align: center;
+        background-size: cover;
+        padding: 25px;
+      }
 
+      .aboutme-icons {
+        text-align: center;
+      }
+
+      .aboutme-cv {
+        text-align: center;
+      }
+
+      .misc-section {
+        width: 100vw;
+        padding: 120px 25px;
+      }
+
+      .text-block-container {
+        width: 65vw;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 500px) {
+        .text-block-container {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+    </style>
+
+    <script src="./crapsgame/crapsgame.js"></script>
   </body>
 </html>
-
-<style>
-  * {
-    box-sizing: border-box;
-    font-family: "Armata";
-  }
-
-  html,
-  body {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .main-section {
-    width: 100vw;
-    height: 100vh;
-    border: solid white 1px;
-    text-align: center;
-    background-size: cover;
-    padding: 25px;
-  }
-
-  .misc-section {
-    width: 100vw;
-    padding: 120px 25px;
-  }
-
-  .text-block-container {
-    width: 65vw;
-    margin: 0 auto;
-  }
-
-  @media screen and (max-width: 500px) {
-      .text-block-container {
-    width: 100%;
-    margin: 0 auto;
-  }
-  }
-</style>
-
-
-<script src="./crapsgame/crapsgame.js"></script>
