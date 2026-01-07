@@ -10,11 +10,18 @@ function makeDreamComeTrue() {
 }
 
 function regCrapsPlayer() {
-  let crapsUsername = alert(
-    document.getElementById(crapsusernameInput).value
-  );
-  removeRegPane();
-  showMainGameSection();
+  let crapsUsername = document.getElementById(crapsusernameInput).value
+
+  // Username Validation Check
+  let firstCharIsDigitRegex = /^[0-9]|[^a-zA-Z0-9_]/g
+  if (crapsUsername.length < 5 || firstCharIsDigitRegex.test(crapsUsername)) {
+    alert(
+      "Your username must be at least 5 characters long, alphanumeric only (a-z/A-Z/0-9), have no space and cannot start with a number"
+    );
+  } else {
+    removeRegPane();
+    showMainGameSection();
+  }
 }
 
 function removeRegPane() {
