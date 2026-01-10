@@ -4,6 +4,10 @@ let crapsUsername = "";
 // Game Settings
 const startingMoney = 1000;
 const startingRound = 0;
+const bets = {
+  even: "EVEN",
+  odd: "ODD"
+}
 
 // HTML ELEMENT IDs
 const crapsusernameInput = "craps-username-input";
@@ -16,6 +20,7 @@ const crapsStatRounds = "craps-stats-rounds";
 // In-game variables
 let currentRounds = startingRound
 let currentMoney = startingMoney
+let currentBet = bets.even
 
 function makeDreamComeTrue() {
   document.body.style.background = "url(../images/bg.png)";
@@ -52,6 +57,7 @@ function setupFirstRound() {
   currentRounds = startingRound
   setMoney(currentMoney);
   setRounds(currentRounds);
+  betEven()
 }
 
 function setMoney(money) {
@@ -60,4 +66,19 @@ function setMoney(money) {
 
 function setRounds(rounds) {
   document.getElementById(crapsStatRounds).innerHTML = rounds;
+}
+
+function betEven() {
+  chooseBet(bets.even)
+}
+
+function betODD() {
+  chooseBet(bets.odd)
+}
+
+function chooseBet(bet) {
+  currentBet = bet
+  document.getElementById(bet).style.backgroundColor = "red";
+  const deselectbet = bet == bets.even ? bets.odd : bets.even
+  document.getElementById(deselectbet).style.backgroundColor = "transparent";
 }
