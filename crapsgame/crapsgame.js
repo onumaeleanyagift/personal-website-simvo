@@ -13,6 +13,10 @@ const crapsStatUsername = "craps-stats-username";
 const crapsStatMoney = "craps-stats-money";
 const crapsStatRounds = "craps-stats-rounds";
 
+// In-game variables
+let currentRounds = startingRound
+let currentMoney = startingMoney
+
 function makeDreamComeTrue() {
   document.body.style.background = "url(../images/bg.png)";
   document.getElementById("title").style.visibility = "hidden";
@@ -44,8 +48,10 @@ function showMainGameSection() {
 
 function setupFirstRound() {
   document.getElementById(crapsStatUsername).innerHTML = crapsUsername;
-  setMoney(startingMoney);
-  setRounds(startingRound);
+  currentMoney = startingMoney
+  currentRounds = startingRound
+  setMoney(currentMoney);
+  setRounds(currentRounds);
 }
 
 function setMoney(money) {
