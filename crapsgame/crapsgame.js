@@ -6,10 +6,10 @@ const startingMoney = 1000;
 const startingRound = 0;
 const bets = {
   even: "EVEN",
-  odd: "ODD"
-}
+  odd: "ODD",
+};
 
-const minimumBet = 100
+const minimumBet = 100;
 
 // HTML ELEMENT IDs
 const crapsusernameInput = "craps-username-input";
@@ -19,12 +19,14 @@ const crapsStatUsername = "craps-stats-username";
 const crapsStatMoney = "craps-stats-money";
 const crapsStatRounds = "craps-stats-rounds";
 const crapsUserBetAmount = "crapsUserBetAmount";
+const crapsRollDiceButton = "crapsRollDiceButton";
+const crapsRollDiceAnimationContainer = "crapsRollDiceAnimationContainer";
 
 // In-game variables
-let currentRounds = startingRound
-let currentMoney = startingMoney
-let currentBet = bets.even
-let currentBetAmount = minimumBet
+let currentRounds = startingRound;
+let currentMoney = startingMoney;
+let currentBet = bets.even;
+let currentBetAmount = minimumBet;
 
 function makeDreamComeTrue() {
   document.body.style.background = "url(../images/bg.png)";
@@ -57,12 +59,12 @@ function showMainGameSection() {
 
 function setupFirstRound() {
   document.getElementById(crapsStatUsername).innerHTML = crapsUsername;
-  currentMoney = startingMoney
-  currentRounds = startingRound
+  currentMoney = startingMoney;
+  currentRounds = startingRound;
   setMoney(currentMoney);
   setRounds(currentRounds);
-  betEven()
-  setBetAmount(minimumBet)
+  betEven();
+  setBetAmount(minimumBet);
 }
 
 function setMoney(money) {
@@ -74,17 +76,17 @@ function setRounds(rounds) {
 }
 
 function betEven() {
-  chooseBet(bets.even)
+  chooseBet(bets.even);
 }
 
 function betODD() {
-  chooseBet(bets.odd)
+  chooseBet(bets.odd);
 }
 
 function chooseBet(bet) {
-  currentBet = bet
+  currentBet = bet;
   document.getElementById(bet).style.backgroundColor = "red";
-  const deselectBet = bet == bets.even ? bets.odd : bets.even
+  const deselectBet = bet == bets.even ? bets.odd : bets.even;
   document.getElementById(deselectBet).style.backgroundColor = "transparent";
 }
 
@@ -98,6 +100,24 @@ function decreaseBet() {
 }
 
 function setBetAmount(betAmount) {
-  currentBetAmount = betAmount
+  currentBetAmount = betAmount;
   document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount;
+}
+
+function rollDice() {
+  document.getElementById(crapsRollDiceButton).style.display = "none";
+  const diceRollElement = document.getElementById(
+    crapsRollDiceAnimationContainer
+  );
+  
+  rollADie({
+    element: diceRollElement,
+    numberOfDice: 2,
+    callback: processDiceResult,
+    delay: 1000000,
+  });
+}
+
+function processDiceResult(diceResult) {
+  console.log(diceResult);
 }
