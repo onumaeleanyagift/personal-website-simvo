@@ -119,6 +119,8 @@ function rollDice() {
   });
 }
 
+window.addEventListener("resize", formatDiceScale)
+
 function formatDiceScale() {
   const vw = window.innerWidth = 80
   const vh = window.innerHeight = 0.8
