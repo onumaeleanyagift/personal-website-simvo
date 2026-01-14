@@ -135,6 +135,12 @@ function formatDiceScale() {
     scale;
 }
 
+function delayedProcessDiceResult(diceResult) {
+  setTimeout(function () {
+    processDiceResult(diceResult);
+  }, 5000)
+}
+
 function processDiceResult(diceResult) {
   const sum = diceResult.reduce((partialSum, a) => partialSum + a, 0);
   let diceSumResult = bets.even;
