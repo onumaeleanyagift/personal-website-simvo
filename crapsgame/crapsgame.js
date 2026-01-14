@@ -21,6 +21,9 @@ const crapsStatRounds = "craps-stats-rounds";
 const crapsUserBetAmount = "crapsUserBetAmount";
 const crapsRollDiceButton = "crapsRollDiceButton";
 const crapsRollDiceAnimationContainer = "crapsRollDiceAnimationContainer";
+const crapsBettingGridContainer = "crapsBettingGridContainer";
+const crapsRoundFinishGridContainer = "crapsRoundFinishGridContainer";
+const crapsRoundFinishMessage = "crapsRoundFinishMessage";
 
 // In-game variables
 let currentRounds = startingRound;
@@ -60,6 +63,7 @@ function showMainGameSection() {
 
 function setupFirstRound() {
   document.getElementById(crapsStatUsername).innerHTML = crapsUsername;
+  document.getElementById(crapsRoundFinishGridContainer).style.display = "none";
   setMoney(startingMoney);
   setRounds(startingRound);
   betEven();
@@ -118,7 +122,7 @@ function rollDice() {
   rollADie({
     element: diceRollElement,
     numberOfDice: 2,
-    callback: processDiceResult,
+    callback: delayedProcessDiceResult,
     delay: 1000000,
   });
 }
@@ -138,7 +142,7 @@ function formatDiceScale() {
 function delayedProcessDiceResult(diceResult) {
   setTimeout(function () {
     processDiceResult(diceResult);
-  }, 5000)
+  }, 1800);
 }
 
 function processDiceResult(diceResult) {
@@ -149,11 +153,21 @@ function processDiceResult(diceResult) {
   }
 
   setRounds(currentRounds + 1);
+  let roundFinishMessage = ""
   if (diceSumResult === currentBet) {
-    alert("YOU WIM");
+    roundFinishMessage = "YOU WIN"
     setMoney(currentMoney + currentBetAmount);
   } else {
-    alert("YOU LOSE");
+    roundFinishMessage = "YOU LOSE"
     setMoney(currentMoney - currentBetAmount);
   }
+
+  if (currentMoney === 0) {
+    roundFinishMessage = "YOU'RE OUT"
+  }
+  document.getElementById(crapsBettingGridContainer).style.display = "none";
+  document.getElementById(crapsRoundFinishGridContainer).style.display =
+    "block";
+  document.getElementById(crapsRoundFinishMessage).innerHTML =
+    roundFinishMessage;
 }

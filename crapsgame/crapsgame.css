@@ -118,11 +118,13 @@
   border-radius: 5px;
 }
 
-.crapsBetButton {
+.crapsBetButton,
+.crapsRoundFinishButton {
   padding: calc(var(--height-scale) * 0.03);
 }
 
-.crapsBetButton:hover {
+.crapsBetButton:hover,
+.crapsRoundFinishButton:hover {
   cursor: pointer;
   font-weight: bold;
 }
@@ -141,4 +143,11 @@
 .crapsuserbetAmountChang:hover {
   cursor: pointer;
   font-weight: bold;
+}
+
+#crapsRoundFinishMessage {
+  padding: calc(var(--height-scale) * 0.03);
+  border-right: solid white 2px;
+  border-left: solid white 2px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
