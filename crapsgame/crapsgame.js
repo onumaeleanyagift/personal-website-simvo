@@ -27,6 +27,7 @@ let currentRounds = startingRound;
 let currentMoney = startingMoney;
 let currentBet = bets.even;
 let currentBetAmount = minimumBet;
+let canChangeBet = true;
 
 function makeDreamComeTrue() {
   document.body.style.background = "url(../images/bg.png)";
@@ -59,10 +60,8 @@ function showMainGameSection() {
 
 function setupFirstRound() {
   document.getElementById(crapsStatUsername).innerHTML = crapsUsername;
-  currentMoney = startingMoney;
-  currentRounds = startingRound;
-  setMoney(currentMoney);
-  setRounds(currentRounds);
+  setMoney(startingMoney);
+  setRounds(startingRound);
   betEven();
   setBetAmount(minimumBet);
 }
@@ -84,10 +83,12 @@ function betODD() {
 }
 
 function chooseBet(bet) {
-  currentBet = bet;
-  document.getElementById(bet).style.backgroundColor = "red";
-  const deselectBet = bet == bets.even ? bets.odd : bets.even;
-  document.getElementById(deselectBet).style.backgroundColor = "transparent";
+  if (canChangeBet) {
+    currentBet = bet;
+    document.getElementById(bet).style.backgroundColor = "red";
+    const deselectBet = bet == bets.even ? bets.odd : bets.even;
+    document.getElementById(deselectBet).style.backgroundColor = "transparent";
+  }
 }
 
 function increaseBet() {
@@ -100,11 +101,14 @@ function decreaseBet() {
 }
 
 function setBetAmount(betAmount) {
-  currentBetAmount = betAmount;
-  document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount;
+  if (canChangeBet) {
+    currentBetAmount = betAmount;
+    document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount;
+  }
 }
 
 function rollDice() {
+  canChangeBet = false;
   formatDiceScale();
   document.getElementById(crapsRollDiceButton).style.display = "none";
   const diceRollElement = document.getElementById(
@@ -119,17 +123,31 @@ function rollDice() {
   });
 }
 
-window.addEventListener("resize", formatDiceScale)
+window.addEventListener("resize", formatDiceScale);
 
 function formatDiceScale() {
-  const vw = window.innerWidth = 80
-  const vh = window.innerHeight = 0.8
-  const widthScale = Math.min(700, vw, vh)
-  const heightScale = widthScale * 0.714
-  const scale = heightScale / 494.6592
-  document.getElementById(crapsRollDiceAnimationContainer).style.transform = "scale(" + scale + ")";
+  const vw = (window.innerWidth = 80);
+  const vh = (window.innerHeight = 0.8);
+  const widthScale = Math.min(700, vw, vh);
+  const heightScale = widthScale * 0.714;
+  const scale = heightScale / 494.6592;
+  document.getElementById(crapsRollDiceAnimationContainer).style.transform =
+    scale;
 }
 
 function processDiceResult(diceResult) {
-  console.log(diceResult);
+  const sum = diceResult.reduce((partialSum, a) => partialSum + a, 0);
+  let diceSumResult = bets.even;
+  if (sum % 2 === 1) {
+    diceSumResult = bets.odd;
+  }
+
+  setRounds(currentRounds + 1);
+  if (diceSumResult === currentBet) {
+    alert("YOU WIM");
+    setMoney(currentMoney + currentBetAmount);
+  } else {
+    alert("YOU LOSE");
+    setMoney(currentMoney - currentBetAmount);
+  }
 }
