@@ -53,6 +53,10 @@ function regCrapsPlayer() {
   }
 }
 
+function showRegPane() {
+  document.getElementById(crapsRegPane).style.display = "block";
+}
+
 function removeRegPane() {
   document.getElementById(crapsRegPane).style.display = "none";
 }
@@ -61,9 +65,18 @@ function showMainGameSection() {
   document.getElementById(crapsMainSection).style.display = "block";
 }
 
+function hideMainGameSection() {
+  document.getElementById(crapsMainSection).style.display = "none";
+}
+
 function setupFirstRound() {
+  document.getElementById(crapsRollDiceButton).style.display = "block";
+  document.getElementById(crapsBettingGridContainer).style.display = "block";
   document.getElementById(crapsStatUsername).innerHTML = crapsUsername;
   document.getElementById(crapsRoundFinishGridContainer).style.display = "none";
+  document.getElementById(crapsRollDiceAnimationContainer).style.display =
+    "none";
+  canChangeBet = true;
   setMoney(startingMoney);
   setRounds(startingRound);
   betEven();
@@ -115,6 +128,8 @@ function rollDice() {
   canChangeBet = false;
   formatDiceScale();
   document.getElementById(crapsRollDiceButton).style.display = "none";
+  document.getElementById(crapsRollDiceAnimationContainer).style.display =
+    "block";
   const diceRollElement = document.getElementById(
     crapsRollDiceAnimationContainer
   );
@@ -153,21 +168,29 @@ function processDiceResult(diceResult) {
   }
 
   setRounds(currentRounds + 1);
-  let roundFinishMessage = ""
+  let roundFinishMessage = "";
   if (diceSumResult === currentBet) {
-    roundFinishMessage = "YOU WIN"
+    roundFinishMessage = "YOU WIN";
     setMoney(currentMoney + currentBetAmount);
   } else {
-    roundFinishMessage = "YOU LOSE"
+    roundFinishMessage = "YOU LOSE";
     setMoney(currentMoney - currentBetAmount);
   }
 
   if (currentMoney === 0) {
-    roundFinishMessage = "YOU'RE OUT"
+    roundFinishMessage = "YOU'RE OUT";
   }
   document.getElementById(crapsBettingGridContainer).style.display = "none";
   document.getElementById(crapsRoundFinishGridContainer).style.display =
     "block";
   document.getElementById(crapsRoundFinishMessage).innerHTML =
     roundFinishMessage;
+}
+
+function exitGame() {
+  alert("After playing " + currentRounds + " rounds, you leave with $" + currentMoney)
+
+  hideMainGameSection();
+  showRegPane();
+  document.getElementById(crapsusernameInput).value = "";
 }
