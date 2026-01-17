@@ -70,17 +70,29 @@ function hideMainGameSection() {
 }
 
 function setupFirstRound() {
-  document.getElementById(crapsRollDiceButton).style.display = "block";
-  document.getElementById(crapsBettingGridContainer).style.display = "block";
+  // document.getElementById(crapsRollDiceButton).style.display = "block";
+  // document.getElementById(crapsBettingGridContainer).style.display = "block";
   document.getElementById(crapsStatUsername).innerHTML = crapsUsername;
-  document.getElementById(crapsRoundFinishGridContainer).style.display = "none";
-  document.getElementById(crapsRollDiceAnimationContainer).style.display =
-    "none";
-  canChangeBet = true;
+  // document.getElementById(crapsRoundFinishGridContainer).style.display = "none";
+  // document.getElementById(crapsRollDiceAnimationContainer).style.display =
+  //   "none";
+  // canChangeBet = true;
   setMoney(startingMoney);
   setRounds(startingRound);
   betEven();
   setBetAmount(minimumBet);
+  setupNextRound()
+}
+
+function setupNextRound() {
+  document.getElementById(crapsRollDiceButton).style.display = "block";
+  document.getElementById(crapsBettingGridContainer).style.display = "block";
+  document.getElementById(crapsRoundFinishGridContainer).style.display = "none";
+  document.getElementById(crapsRollDiceAnimationContainer).style.display =
+    "none";
+  canChangeBet = true;
+  // setBetAmount(minimumBet);
+  setBetAmount(currentBetAmount <= currentMoney ? currentBetAmount : minimumBet);
 }
 
 function setMoney(money) {
