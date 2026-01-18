@@ -1,51 +1,163 @@
+:root {
+  --width-scale: min(700px, 80vw, 80vh);
+  --height-scale: calc(var(--width-scale) * 0.714);
+  --game-title-size: min(calc(var(--height-scale) * 0.1), 2em);
+  --title-margin-bottom: calc(var(--height-scale) * 0.25);
+}
+
 #craps-game {
-    background-image: url("../images/Craps.jpg");
-    background-position: top center;
-    color: white;
+  background-image: url("../images/Craps.jpg");
+  background-position: top center;
+  color: white;
+  padding: 1px;
 }
 
 .craps-game-title {
-    text-align: center;
-    margin-top: 50px
+  font-size: var(--game-title-size);
+  text-align: center;
+  margin-top: calc(
+    calc(30vh - var(--game-title-size) - var(--title-margin-bottom)) / 2
+  );
+  margin-bottom: var(--title-margin-bottom);
 }
 
 .craps-game-container {
-    width: min(700px, 80vw);
-    height: min(500px, 57vw);
-    border: solid white 2px;
-    margin: 100px auto 0 auto;
-    background-image: url(../images/craps-table.jpg);
-    background-size: cover;
-    background-position: top center;
+  width: var(--width-scale);
+  height: var(--height-scale);
+  border: solid white 2px;
+  margin: 0 auto;
+  background-image: url(../images/craps-table.jpg);
+  background-size: cover;
+  background-position: top center;
+  position: relative;
 }
 
 #craps-reg-pane {
-    margin-top: 25px;
-    text-align: center;
+  margin-top: calc(var(--height-scale) * 0.15);
+  font-size: calc(var(--game-title-size) * 0.5);
+  text-align: center;
 }
 
 .craps-reg-input {
-    background: none;
-    border: none;
-    border-bottom: solid white 1px;
-    margin-top: 25px;
-    color: white;
-    text-align: center;
+  background: none;
+  border: none;
+  border-bottom: solid white 1px;
+  margin: calc(var(--height-scale) * 0.05) 0;
+  color: white;
+  font-size: calc(var(--game-title-size) * 0.5);
+  text-align: center;
 }
 
 .craps-reg-input:focus {
-    outline-width: 0;
+  outline-width: 0;
 }
 
 .craps-reg-continue {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .craps-reg-continue:hover {
-    cursor: pointer;
-    font-weight: bold;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #craps-main-section {
-    display: none;
+  display: none;
+  height: 100%;
+}
+
+.craps-main-section-stats {
+  text-align: center;
+  font-size: calc(var(--height-scale) * 0.04);
+  margin-top: calc(var(--height-scale) * 0.15);
+}
+
+#craps-stats-money-container {
+  font-size: calc(var(--height-scale) * 0.085);
+  margin-top: calc(var(--height-scale) * 0.04);
+}
+
+.crapsOnTableContainer {
+  margin-top: calc(var(--height-scale) * 0.21);
+  font-size: calc(var(--height-scale) * 0.04);
+  text-align: center;
+}
+
+.craps-round-manager {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: calc(var(--height-scale) * 0.04);
+  font-size: calc(var(--height-scale) * 0.04);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.crapsRollDiceContainer {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.crapsRollDiceContainer:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#crapsRollDiceAnimationContainer {
+  margin-top: calc(var(--height-scale) * -0.17);
+  margin-left: calc(var(--height-scale) * -0.15);
+}
+
+.crapsBettingGrid {
+  display: grid;
+  grid-template-columns: 33% auto 33%;
+  width: 80%;
+  margin: 0 auto;
+  border: solid white 2px;
+  border-radius: 5px;
+}
+
+.crapsBetButton,
+.crapsRoundFinishButton {
+  padding: calc(var(--height-scale) * 0.03);
+}
+
+.crapsBetButton:hover,
+.crapsRoundFinishButton:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.crapsBetAmount {
+  padding: calc(var(--height-scale) * 0.03);
+  border-right: solid white 2px;
+  border-left: solid white 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#crapsUserBetAmount {
+  margin: 0 calc(var(--height-scale) * 0.03);
+}
+
+.crapsuserbetAmountChang:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#crapsRoundFinishMessage {
+  padding: calc(var(--height-scale) * 0.03);
+  border-right: solid white 2px;
+  border-left: solid white 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#crapsNextRoundDisabled {
+  padding: calc(var(--height-scale) * 0.03);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: grey;
+}
+
+#crapsNextRoundDisabled:hover {
+  cursor: not-allowed;
 }
