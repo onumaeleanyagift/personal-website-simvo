@@ -151,3 +151,13 @@
   border-left: solid white 2px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+#crapsNextRoundDisabled {
+  padding: calc(var(--height-scale) * 0.03);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: grey;
+}
+
+#crapsNextRoundDisabled:hover {
+  cursor: not-allowed;
+}
