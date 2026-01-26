@@ -71,4 +71,39 @@ for (let row = 1; row <= rows; row++) {
     console.log(printValue)
 }
 
+// Iterables and Iteration Challenge
+
+// Ex 1
+
+let originalString = "This is a string"
+console.log("Original: " + originalString)
+
+let reverseString = ""
+
+for (let character of originalString) {
+    reverseString = character + reverseString
+}
+
+console.log(reverseString)
+
+// Ex 2
+
+let array = ["arrays", "are", "iterable"]
+let characterCount = {}
+
+console.log(array)
+
+for (let element of array) {
+
+    for (let character of element) {
+        if ((character in characterCount)) {
+            characterCount[character] += 1
+        } else {
+            characterCount[character] = 1
+        }
+    }
+}
+
+console.log(characterCount)
+
 
