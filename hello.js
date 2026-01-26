@@ -37,7 +37,38 @@ for (let i = 0; i < groceryList.length; i++) {
         indexOfLongestString = i
         maxLength = elementLength
     }
+
+    if (elementLength > 8) {
+        break
+    }
 }
 
 console.log(groceryList)
 console.log("Index of longest string in the array is: " + indexOfLongestString + " which is " + groceryList[indexOfLongestString])
+
+// Nested Loop Challenge
+
+// Ex 1
+
+for (let i = 0; i < 4; i++) {
+    console.log("__________")
+    for (let j = 0; j < 4; j++) {
+        console.log("i: " + i + " j: " + j)
+    }
+}
+
+// Ex 2
+
+let rows = 5
+
+console.log('For rows = ' + rows)
+
+for (let row = 1; row <= rows; row++) {
+    let printValue = ""
+    for (let column = 0; column < row; column++) {
+      printValue += "*"
+    }
+    console.log(printValue)
+}
+
+
