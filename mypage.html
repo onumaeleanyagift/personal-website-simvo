@@ -158,7 +158,8 @@
           Put in a stock symbol you'd like to analyze (e.g. MSFT)
         </div>
         <input id="stockAnalysisDashboardInput">
-        <button id="stockAnalysisDashboardButton" onclick="getNewRandomQuote()">Analyze</button>
+        <button id="stockAnalysisDashboardButton" onclick="analyzeStock()">Analyze</button>
+        <div id="stockAnalysisDahboardData"></div>
       </div>
     </div>
 
@@ -215,5 +216,6 @@
       type="text/javascript"
       src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"
     ></script>
+    <script src="./stockAnalysisDashboard/stockAnalysisDahboard.js"></script>
   </body>
 </html>
