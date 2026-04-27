@@ -3,6 +3,7 @@ import {
   analyzeStock,
   VerticalAlignContainer,
   VerticalAlignContent,
+  DashboardGridContainer,
 } from "./stockAnalysisDahboard";
 import { Oval } from "react-loader-spinner";
 import "./stockAnalysisDashboard.css";
@@ -35,12 +36,12 @@ function StockAnalysisDashboard() {
     return (
       <VerticalAlignContainer>
         <VerticalAlignContent>
+          <DashboardGridContainer>
             <div onClick={() => goBack()}>Back</div>
-          <div>
-            <DashboardGrid
-            stockData={stockData}
-            ></DashboardGrid>
-          </div>
+            <div>
+              <DashboardGrid stockData={stockData}></DashboardGrid>
+            </div>
+          </DashboardGridContainer>
         </VerticalAlignContent>
       </VerticalAlignContainer>
     );
@@ -57,6 +58,7 @@ function StockAnalysisDashboard() {
                 height={80}
                 width={80}
                 color="#4fa94d"
+                align-item="center"
                 visible={true}
                 ariaLabel="oval-loading"
                 secondaryColor="#4fa94d"
