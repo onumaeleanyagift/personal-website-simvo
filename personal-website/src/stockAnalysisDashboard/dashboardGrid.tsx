@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import "gridstack/dist/gridstack.min.css";
 import { GridStack } from "gridstack";
 import { DashboardGridContent } from "./stockAnalysisDahboard";
+import NumberStat from "./numberStat";
 
 function DashboardGrid({ stockData }: { stockData: any }) {
-  
-    useEffect(() => {
+  useEffect(() => {
     GridStack.init();
   });
 
@@ -15,26 +15,38 @@ function DashboardGrid({ stockData }: { stockData: any }) {
         {/* First Row */}
         <div className="grid-stack-item" gs-w="3">
           <DashboardGridContent className="grid-stack-item-content">
-            <div>{stockData.basicInfo.marketCap}</div>
-            Market Cap
+            <NumberStat
+              value={stockData.basicInfo.marketCap}
+              label="Market Cap"
+              center={true}
+            ></NumberStat>
           </DashboardGridContent>
         </div>
         <div className="grid-stack-item" gs-w="3">
           <DashboardGridContent className="grid-stack-item-content">
-            <div>{stockData.basicInfo.fullTimeEmployees}</div>
-            Employees
+            <NumberStat
+              value={stockData.basicInfo.fullTimeEmployees}
+              label="Employees"
+              center={true}
+            ></NumberStat>
           </DashboardGridContent>
         </div>
         <div className="grid-stack-item" gs-w="3">
           <DashboardGridContent className="grid-stack-item-content">
-            <div>{stockData.basicInfo.totalRevenue}</div>
-            Total Revenue
+            <NumberStat
+              value={stockData.basicInfo.totalRevenue}
+              label="Total Revenue"
+              center={true}
+            ></NumberStat>
           </DashboardGridContent>
         </div>
         <div className="grid-stack-item" gs-w="3">
           <DashboardGridContent className="grid-stack-item-content">
-            <div>{stockData.basicInfo.trailingEps}</div>
-            Earnings Per Share
+            <NumberStat
+              value={stockData.basicInfo.trailingEps}
+              label="Earnings Per Share"
+              center={true}
+            ></NumberStat>
           </DashboardGridContent>
         </div>
       </div>

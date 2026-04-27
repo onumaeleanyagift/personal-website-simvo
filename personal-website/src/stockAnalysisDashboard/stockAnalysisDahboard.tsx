@@ -6,7 +6,7 @@ import {
   DashboardGridContainer,
 } from "./stockAnalysisDahboard";
 import { Oval } from "react-loader-spinner";
-import "./stockAnalysisDashboard.css";
+import "./stockAnalysisDashboard.css"
 import DashboardGrid from "./dashboardGrid";
 
 function StockAnalysisDashboard() {
@@ -53,12 +53,11 @@ function StockAnalysisDashboard() {
         <div>
           <div id="stockAnalysisDashboardTitle">STOCK ANALYSIS DASHBOARD</div>
           {isLoading ? (
-            <div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               <Oval
                 height={80}
                 width={80}
                 color="#4fa94d"
-                align-item="center"
                 visible={true}
                 ariaLabel="oval-loading"
                 secondaryColor="#4fa94d"
