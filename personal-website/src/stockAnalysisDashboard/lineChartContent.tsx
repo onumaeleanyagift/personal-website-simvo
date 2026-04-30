@@ -5,7 +5,6 @@ import { Chart } from "chart.js/auto";
 Chart.register(CategoryScale);
 
 function LineChartContent({ priceHistory }: { priceHistory: any }) {
-  console.log("priceHistory data:", priceHistory);
 
   const lineChartData = {
     labels: priceHistory.date,
