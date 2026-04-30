@@ -55,7 +55,7 @@ function DashboardGrid({ stockData }: { stockData: any }) {
 
         <div className="grid-stack-item" gs-w="10" gs-h="3">
           <DashboardGridContent className="grid-stack-item-content">
-            <LineChartContent priceHistory={stockData} />
+            <LineChartContent priceHistory={stockData.priceHistory}></LineChartContent>
           </DashboardGridContent>
         </div>
       </div>

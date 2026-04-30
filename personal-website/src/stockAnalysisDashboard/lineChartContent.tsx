@@ -1,15 +1,16 @@
-import {PrimaryColor} from "./stockAnalysisDahboard"
-import { Line } from 'react-chartjs-2'
-import { CategoryScale } from "chart.js"
-import { Chart } from "chart.js/auto"
+import { PrimaryColor } from "./stockAnalysisDahboard";
+import { Line } from "react-chartjs-2";
+import { CategoryScale } from "chart.js";
+import { Chart } from "chart.js/auto";
 Chart.register(CategoryScale);
 
 function LineChartContent({ priceHistory }: { priceHistory: any }) {
-  
-    const lineChartData = {
+  console.log("priceHistory data:", priceHistory);
+
+  const lineChartData = {
     labels: priceHistory.date,
-    datasets: [
-      {
+    datasets: [{
+        label: "Price",
         data: priceHistory.price,
         borderColor: PrimaryColor,
         borderWidth: 2,
@@ -26,10 +27,10 @@ function LineChartContent({ priceHistory }: { priceHistory: any }) {
         plugins: {
           title: {
             display: true,
-            text: "Historical Stock Price",
+            text: "Historical Stock Price"
           },
           legend: {
-            display: false,
+            display: false
           },
         },
       }}

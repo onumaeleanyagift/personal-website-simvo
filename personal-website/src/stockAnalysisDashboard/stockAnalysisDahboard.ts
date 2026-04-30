@@ -5,7 +5,7 @@ export async function analyzeStock(stockSymbolToAnalyze: string) {
     alert("You must put in a ticker symbol before runnig the analysis");
     return;
   }
-  const url = "http://127.0.0.1:5000/analyze-stock/" + stockSymbolToAnalyze;
+  const url = "http://127.0.0.1:5001/analyze-stock/" + stockSymbolToAnalyze;
 
   console.log("Running");
   const response = await fetch(url);
