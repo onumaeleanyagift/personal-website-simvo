@@ -4,6 +4,7 @@ import { GridStack } from "gridstack";
 import { DashboardGridContent } from "./stockAnalysisDahboard";
 import NumberStat from "./numberStat";
 import LineChartContent from "./lineChartContent";
+import NewsLinksList from "./newsLinks";
 
 function DashboardGrid({ stockData }: { stockData: any }) {
   useEffect(() => {
@@ -63,10 +64,18 @@ function DashboardGrid({ stockData }: { stockData: any }) {
 
         <div className="grid-stack-item" gs-w="2" gs-h="2">
           <DashboardGridContent className="grid-stack-item-content">
-            <div style={{marginBottom: '10px'}}>Future Earnings</div>
+            <div style={{ marginBottom: "10px" }}>Future Earnings</div>
             {stockData.futureEarningsDates.map((nextDate: string) => (
               <div>{nextDate}</div>
             ))}
+          </DashboardGridContent>
+        </div>
+
+        {/* Third Row */}
+
+        <div className="grid-stack-item" gs-w="5" gs-h="2">
+          <DashboardGridContent className="grid-stack-item-content">
+            <NewsLinksList newsLinks={stockData.newsArticles}></NewsLinksList>
           </DashboardGridContent>
         </div>
       </div>
