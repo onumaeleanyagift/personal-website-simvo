@@ -20,7 +20,10 @@ const NewsListContainer = styled.div`
 const NewsItem = styled.a`
   display: block;
   width: 100%;
+  padding: 12px 16px;
   font-size: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   color: ${PrimaryColor};
   text-decoration: none;
   overflow: hidden;
