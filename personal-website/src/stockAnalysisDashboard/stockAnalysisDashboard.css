@@ -1,3 +1,10 @@
 #stockAnalysisDashboard {
-    background-image: url(../images/Skyline.png);
+  background-image: url(../images/Skyline.png);
+}
+
+#stockDashboardInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }

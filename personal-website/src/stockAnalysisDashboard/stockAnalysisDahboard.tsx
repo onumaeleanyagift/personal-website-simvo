@@ -4,13 +4,21 @@ import {
   VerticalAlignContainer,
   VerticalAlignContent,
   DashboardGridContainer,
+  DashboardTitle,
+  MarginSpace,
+  DashboardSubTitle,
+  LoadingOvalContainer,
+  BackButton,
+  AnalyzeInput,
+  AnalyzeButton,
+  InputContainer,
 } from "./stockAnalysisDahboard";
 import { Oval } from "react-loader-spinner";
 import "./stockAnalysisDashboard.css"
 import DashboardGrid from "./dashboardGrid";
 
 function StockAnalysisDashboard() {
-  const [stockData, setStockData] = useState("123");
+  const [stockData, setStockData] = useState<any>(null);
   const [stockSymbol, setStockSymbol] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [gotData, setGotData] = useState(false);
@@ -37,7 +45,12 @@ function StockAnalysisDashboard() {
       <VerticalAlignContainer>
         <VerticalAlignContent>
           <DashboardGridContainer>
-            <div onClick={() => goBack()}>Back</div>
+            <DashboardTitle>{stockData.basicInfo.longName}</DashboardTitle>
+            <DashboardSubTitle>
+              {stockData.basicInfo.sector}
+            </DashboardSubTitle>
+            <MarginSpace></MarginSpace>
+            <BackButton onClick={() => goBack()}>Back</BackButton>
             <div>
               <DashboardGrid stockData={stockData}></DashboardGrid>
             </div>
@@ -50,39 +63,47 @@ function StockAnalysisDashboard() {
   return (
     <VerticalAlignContainer>
       <VerticalAlignContent>
-        <div>
-          <div id="stockAnalysisDashboardTitle">STOCK ANALYSIS DASHBOARD</div>
-          {isLoading ? (
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Oval
-                height={80}
-                width={80}
-                color="#4fa94d"
-                visible={true}
-                ariaLabel="oval-loading"
-                secondaryColor="#4fa94d"
-                strokeWidth={2}
-                strokeWidthSecondary={2}
-              />
-            </div>
-          ) : (
-            <div>
-              <div id="stockAnalysisDashboardSubtitle">
-                Put in a stock symbol you'd like to analyze (e.g. MSFT)
+        <div id="stockDashboardInput">
+          <div>
+            <DashboardTitle id="stockAnalysisDashboardTitle">
+              STOCK ANALYSIS DASHBOARD
+            </DashboardTitle>
+          
+            {isLoading ? (
+              <LoadingOvalContainer>
+                <MarginSpace></MarginSpace>
+                <Oval
+                  height={50}
+                  width={50}
+                  color="#ffffff"
+                  visible={true}
+                  ariaLabel="oval-loading"
+                  secondaryColor="#ffffff"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                />
+              </LoadingOvalContainer>
+            ) : (
+              <div>
+                <DashboardSubTitle id="stockAnalysisDashboardSubtitle">
+                  Put in a stock symbol you'd like to analyze (e.g. MSFT)
+                </DashboardSubTitle>
+                <MarginSpace></MarginSpace>
+                <InputContainer>
+                  <AnalyzeInput
+                    value={stockSymbol}
+                    onChange={(e) => setStockSymbol(e.target.value)}
+                  ></AnalyzeInput>
+                  <AnalyzeButton
+                    id="stockAnalysisDashboardButton"
+                    onClick={() => runStockAnalysis()}
+                  >
+                    Analyze
+                  </AnalyzeButton>
+                </InputContainer>
               </div>
-
-              <input
-                value={stockSymbol}
-                onChange={(e) => setStockSymbol(e.target.value)}
-              ></input>
-              <button
-                id="stockAnalysisDashboardButton"
-                onClick={() => runStockAnalysis()}
-              >
-                Analyze
-              </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </VerticalAlignContent>
     </VerticalAlignContainer>
