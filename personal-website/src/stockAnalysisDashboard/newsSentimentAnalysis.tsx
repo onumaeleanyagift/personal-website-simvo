@@ -39,7 +39,7 @@ export default function SentimentChart({
         borderWidth: 0,
       },
     ],
-  };
+  }; 
 
   const options = {
     responsive: true,

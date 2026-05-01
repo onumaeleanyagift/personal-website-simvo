@@ -87,6 +87,16 @@ function DashboardGrid({ stockData }: { stockData: any }) {
             ></SentimentChart>
           </DashboardGridContent>
         </div>
+
+        <div className="grid-stack-item" gs-w="3" gs-h="2">
+          <DashboardGridContent className="grid-stack-item-content">
+            <img
+              src={`data:image/png;base64,${stockData.newsTextAnalysis.data.wordCloudImage}`}
+              alt="Word Cloud"
+              style={{height: '100%', width: '100%'}}
+            />
+          </DashboardGridContent>
+        </div>
       </div>
     </div>
   );
