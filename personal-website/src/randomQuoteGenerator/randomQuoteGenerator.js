@@ -15,7 +15,7 @@ const colors = [
   ["#F7ECDE", "#54BAB9"],
   ["#7897AB", "#D885A3"],
   ["#B97A95", "#F6AE99"],
-]
+];
 
 function getRandomColorCombo() {
   const randomIndex = Math.floor(Math.random() * colors.length);
@@ -24,20 +24,34 @@ function getRandomColorCombo() {
 
 async function getNewRandomQuote() {
   console.log("Getting Data");
-  const response = await fetch("https://api.quotable.io/quote/random");
-  if (!response.ok) {
-        alert("There was a problem getting a new quote!");
+
+  try {
+    const response = await fetch("https://dummyjson.com/quotes/random");
+
+    if (!response.ok) {
+      alert("There was a problem getting a new quote!");
+    }
+
+    const data = await response.json();
+   console.log(data);
+
+
+    console.log("GOT DATA");
+
+    const quoteText = data.quote;
+    const quoteAuthor = data.author;
+
+    document.getElementById(randomQuoteText).innerHTML = quoteText;
+    document.getElementById(randomQuoteAuthor).innerHTML = quoteAuthor;
+
+    const colorCombo = getRandomColorCombo();
+
+    document.getElementById("randomQuoteGenerator").style.background =
+      `linear-gradient(45deg, ${colorCombo[0]}, ${colorCombo[1]})`;
+
+    console.log("Finished");
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
   }
-  const data = await response.json();
-  
-  console.log("GOT DATA");
-  const quoteText = data[0].content;
-  const quoteAuthor = data[0].author;
-  document.getElementById(randomQuoteText).innerHTML = quoteText;
-  document.getElementById(randomQuoteAuthor).innerHTML = quoteAuthor;
-
-  const colorCombo = getRandomColorCombo();
-  document.getElementById("randomQuoteGenerator").style.background = `linear-gradient(45deg, ${colorCombo[0]}, ${colorCombo[1]})`;
-
-  console.log("Finished");
 }
