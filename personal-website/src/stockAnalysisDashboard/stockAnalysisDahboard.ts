@@ -5,7 +5,17 @@ export async function analyzeStock(stockSymbolToAnalyze: string) {
     alert("You must put in a ticker symbol before runnig the analysis");
     return;
   }
-  const url = "http://127.0.0.1:5001/analyze-stock/" + stockSymbolToAnalyze;
+
+  // Localhost
+  // const url = "http://127.0.0.1:5001/analyze-stock/" + stockSymbolToAnalyze;
+
+  // Subnet
+  // const url = "http://172.28.95.248:5173//analyze-stock/" + stockSymbolToAnalyze;
+
+  // Production
+  const url =
+    "https://text-analysis-tool-9lco.onrender.com/analyze-stock/" +
+    stockSymbolToAnalyze;
 
   console.log("Running");
   const response = await fetch(url);
@@ -16,12 +26,10 @@ export async function analyzeStock(stockSymbolToAnalyze: string) {
   return data;
 }
 
-
-export const PrimaryColor = '#467bb0'
+export const PrimaryColor = "#467bb0";
 export const ThemeGreen = "#22c55e";
 export const ThemeRed = "#ef4444";
 export const ThemeGrey = "#9ca3af";
-
 
 export const VerticalAlignContainer = styled.div`
   width: 100%;
@@ -33,7 +41,6 @@ export const VerticalAlignContent = styled.div`
   display: table-cell;
   vertical-align: middle;
 `;
-
 
 export const DashboardGridContainer = styled.div`
   width: 80%;
@@ -83,7 +90,7 @@ export const InputContainer = styled.div`
   width: fit-content;
   margin: 0 auto;
   display: flex;
-`
+`;
 
 export const AnalyzeInput = styled.input`
   padding: 10px;
@@ -100,14 +107,8 @@ export const AnalyzeButton = styled.div`
   padding: 10px;
   color: white;
   &:hover {
-  cursor: pointer;
-  background-color: white;
-  color: ${PrimaryColor}
+    cursor: pointer;
+    background-color: white;
+    color: ${PrimaryColor};
   }
 `;
-
-
-
-
-
-
