@@ -1,6 +1,30 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "chart.js": "^4.5.1",
     "react-chartjs-2": "^5.3.1"
+=======
+  "name": "personal-website-simvo",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "homepage": "https://github.com/onumaeleanyagift/personal-website-simvo#readme",
+  "bugs": {
+    "url": "https://github.com/onumaeleanyagift/personal-website-simvo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onumaeleanyagift/personal-website-simvo.git"
+  },
+  "license": "ISC",
+  "author": "Onuma Jnr",
+  "type": "server.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+>>>>>>> origin/main
   }
 }
